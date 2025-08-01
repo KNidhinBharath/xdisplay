@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const Form = () => {
 
-    const [formData,setformData] = useState({
+    const [formData,setFormData] = useState({
         firstName : "",
         lastName : ""
     })
@@ -12,7 +12,12 @@ const Form = () => {
     const handleChange = (e) => {
 
         const {name,value} = e.target
-        setformData((prev) => ({ ...prev , [name] : value }))
+        const alphaOnly = /^[A-Za-z]*$/;
+        
+        if (alphaOnly.test(value)) {
+            setFormData((prev) => ({ ...prev, [name]: value }));
+            }
+        
         
     }
 
@@ -56,7 +61,7 @@ const Form = () => {
 
             {
                 submitted && (
-                    <h3> Full Name : {formData.firstName} {formData.lastName} </h3>                )
+                    <h3> Full Name: {formData.firstName} {formData.lastName} </h3>                )
             }
 
         </div>
