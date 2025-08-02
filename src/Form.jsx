@@ -12,12 +12,13 @@ const Form = () => {
     const handleChange = (e) => {
 
         const {name,value} = e.target
-        const alphaOnly = /^[A-Za-z]*$/;
+        // const alphaOnly = /^[A-Za-z]*$/;
         
-        if (alphaOnly.test(value)) {
-            setFormData((prev) => ({ ...prev, [name]: value }));
-            }
+        // if (alphaOnly.test(value)) {
+        //     setFormData((prev) => ({ ...prev, [name]: value }));
+        //     }
         
+        setFormData((prev) => ({...prev,[name]: value}))
         
     }
 
